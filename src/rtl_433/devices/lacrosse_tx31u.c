@@ -68,8 +68,8 @@ These readings have not been tested.
 
 #define BIT(pos)               (1 << (pos))
 #define CHECK_BIT(y, pos)      ((0u == ((y) & (BIT(pos)))) ? 0u : 1u)
-#define SET_LSBITS(len)        (BIT(len) - 1)                     // the first len bits are '1' and the rest are '0'
-#define BF_PREP(y, start, len) (((y)&SET_LSBITS(len)) << (start)) // Prepare a bitmask
+#define SET_LSBITS(len)        (BIT(len) - 1)                       // the first len bits are '1' and the rest are '0'
+#define BF_PREP(y, start, len) (((y) & SET_LSBITS(len)) << (start)) // Prepare a bitmask
 #define BF_GET(y, start, len)  (((y) >> (start)) & SET_LSBITS(len))
 
 #define TX31U_MIN_LEN_BYTES    9  // assume at least one measurement
@@ -161,7 +161,7 @@ static int lacrosse_tx31u_decode(r_device *decoder, bitbuffer_t *bitbuffer)
             } break;
             case RAIN: {
                 int raw_rain = (nib1<<8) + (nib2<<4) + nib3; // count of contact closures
-                if ( !no_ext_sensor && raw_rain > 0) { // most of these do not have rain gauges.  Surpress output if zero.
+                if ( !no_ext_sensor && raw_rain > 0) { // most of these do not have rain gauges.  Suppress output if zero.
                     data = data_append( data,
                         "rain",         "raw_rain",     DATA_FORMAT, "%03x", DATA_INT, raw_rain,
                         NULL);
@@ -178,7 +178,7 @@ static int lacrosse_tx31u_decode(r_device *decoder, bitbuffer_t *bitbuffer)
                 }
             } break;
             case WIND_MAX: {
-                int wind_input_lost = CHECK_BIT(nib1, 0); // a sensor was attched, but now not detected
+                int wind_input_lost = CHECK_BIT(nib1, 0); // a sensor was attached, but now not detected
                 if ( !no_ext_sensor && !wind_input_lost ) {
                     float wind_max = ((nib2<<4) + nib3) * 0.1f * 3.6; // wind values are decimal m/sec, convert to km/hr
                     data = data_append( data,

@@ -39,6 +39,8 @@
     DECL(bresser_5in1)               \
     DECL(bresser_6in1)               \
     DECL(bresser_7in1)               \
+    DECL(bresser_leakage)            \
+    DECL(bresser_lightning)          \
     DECL(bt_rain)                    \
     DECL(burnhardbbq)                \
     DECL(calibeur_RF104)             \
@@ -82,12 +84,15 @@
     DECL(fineoffset_WH51)            \
     DECL(fineoffset_WH0530)          \
     DECL(fineoffset_wh1050)          \
+    DECL(tfa_303151)                 \
     DECL(fineoffset_wh1080)          \
     DECL(fineoffset_wh1080_fsk)      \
     DECL(fineoffset_wh31l)           \
     DECL(fineoffset_wh45)            \
+    DECL(fineoffset_wh55)            \
     DECL(fineoffset_wn34)            \
     DECL(fineoffset_ws80)            \
+    DECL(fineoffset_ws90)            \
     DECL(flowis)                     \
     DECL(fordremote)                 \
     DECL(fs20)                       \
@@ -186,6 +191,7 @@
     DECL(rubicson_48659)             \
     DECL(rubicson_pool_48942)        \
     DECL(s3318p)                     \
+    DECL(schou_72543_rain)           \
     DECL(schraeder)                  \
     DECL(schrader_EG53MA4)           \
     DECL(schrader_SMD3MA4)           \
@@ -214,6 +220,7 @@
     DECL(thermopro_tp11)             \
     DECL(thermopro_tp12)             \
     DECL(thermopro_tx2)              \
+    DECL(thermopro_tx2c)             \
     DECL(tpms_abarth124)             \
     DECL(tpms_ave)                   \
     DECL(tpms_citroen)               \
@@ -224,6 +231,7 @@
     DECL(tpms_jansite)               \
     DECL(tpms_jansite_solar)         \
     DECL(tpms_kia)                   \
+    DECL(tpms_nissan)                \
     DECL(tpms_pmv107j)               \
     DECL(tpms_porsche)               \
     DECL(tpms_renault)               \
@@ -247,18 +255,21 @@
     DECL(x10_sec)                    \
     DECL(yale_hsa)                   \
     /* Add new decoders here. */
-#  define NUMOF_OOK_DEVICES 157
-#  define NUMOF_FSK_DEVICES 80
+#  define NUMOF_OOK_DEVICES 159
+#  define NUMOF_FSK_DEVICES 86
 /* Add new decoders here. */
 #else
 /**
  * Subset of devices that I have access to and have tested with
  */
 #  define DEVICES         \
-    DECL(lacrosse_tx141x) \
+    DECL(acurite_986)     \
+    DECL(skylink_motion)  \
+    DECL(prologue)        \
+    DECL(philips_aj3650)  \
+    DECL(fineoffset_WH51) \
 /* Add new personal decoders here. */
-#  define NUMOF_OOK_DEVICES 1
-#  define NUMOF_FSK_DEVICES 0
+#  define NUMOFDEVICES 5
 #endif
 
 #define DECL(name) extern r_device name;
